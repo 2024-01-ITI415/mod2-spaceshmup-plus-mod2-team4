@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Enemy : MonoBehaviour {
 
@@ -124,5 +126,13 @@ public class Enemy : MonoBehaviour {
             materials[i].color = originalColors[i];
         }
         showingDamage = false;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Hero"))
+        {
+            ScoreManager.instance.AddScore(score);
+        }
+        
     }
 }
