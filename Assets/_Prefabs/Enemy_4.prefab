@@ -316,18 +316,14 @@ MonoBehaviour:
     - WingR
     go: {fileID: 0}
     mat: {fileID: 0}
-  - name: Fuselage
+  - name: WingL
     health: 10
-    protectedBy:
-    - WingL
-    - WingR
+    protectedBy: []
     go: {fileID: 0}
     mat: {fileID: 0}
-  - name: Fuselage
+  - name: WingR
     health: 10
-    protectedBy:
-    - WingL
-    - WingR
+    protectedBy: []
     go: {fileID: 0}
     mat: {fileID: 0}
 --- !u!114 &114091118160397558
