@@ -46,6 +46,10 @@ public class Weapon : MonoBehaviour {
     public GameObject collar;
     public float lastShotTime; // Time last shot was fired
     private Renderer collarRend;
+    public Transform target;
+
+    public float speed = 5.0f;
+    public float rotateSpeed = 100.0f;
 
     private void Start()
     {
@@ -101,6 +105,7 @@ public class Weapon : MonoBehaviour {
 
     public void Fire()
     {
+
         Debug.Log("Weapon Fired:" + gameObject.name);
         // If this.gameObject is inactive, return
         if (!gameObject.activeInHierarchy) return;
@@ -131,6 +136,11 @@ public class Weapon : MonoBehaviour {
                 p = MakeProjectile(); // Make left Projectile
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.rigid.velocity = p.transform.rotation * vel;
+                break;
+
+            case WeaponType.missile:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
                 break;
         }
     }
