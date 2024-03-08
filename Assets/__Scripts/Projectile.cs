@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour {
     [SerializeField]
     private WeaponType _type;
 
+
     // This public property masks the field _type and takes action when it is set
     public WeaponType type
     {
@@ -31,13 +32,16 @@ public class Projectile : MonoBehaviour {
         rigid = GetComponent<Rigidbody>();
     }
 
+
     private void Update()
     {
         if (bndCheck.offUp)
         {
             Destroy(gameObject);
         }
+
     }
+
 
     ///<summary>
     /// Sets the _type private field and colors this projectile to match the
