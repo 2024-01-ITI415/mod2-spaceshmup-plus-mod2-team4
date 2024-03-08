@@ -15,6 +15,7 @@ public enum WeaponType
     phaser, // [NI] Shots that move in waves
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
+    nuke, //Wipe all enemies
     shield // Raise shieldLevel
 }
 

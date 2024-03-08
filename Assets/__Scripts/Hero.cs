@@ -107,6 +107,10 @@ public class Hero : MonoBehaviour {
                 shieldLevel++;
                 break;
 
+            case WeaponType.nuke:
+                nukeEnemies();
+                break;
+
             default:
                 if(pu.type == weapons[0].type)
                 {
@@ -164,6 +168,15 @@ public class Hero : MonoBehaviour {
         foreach (Weapon w in weapons)
         {
             w.SetType(WeaponType.none);
+        }
+    }
+
+    void nukeEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject go in  enemies)
+        {
+            go.GetComponent<Enemy>().health = 0;
         }
     }
 }
