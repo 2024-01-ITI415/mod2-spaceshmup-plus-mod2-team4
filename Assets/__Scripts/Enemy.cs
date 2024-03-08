@@ -127,12 +127,4 @@ public class Enemy : MonoBehaviour {
         }
         showingDamage = false;
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Hero"))
-        {
-            ScoreManager.instance.AddScore(score);
-        }
-        
-    }
 }

@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         // Load high score from player preferences
-        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        highScore = PlayerPrefs.GetInt("HighScore: ", 0);
         UpdateHighScoreText();
     }
 
@@ -42,7 +42,7 @@ public class ScoreManager : MonoBehaviour
         if (score > highScore)
         {
             highScore = score;
-            PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.SetInt("HighScore: ", highScore);
             UpdateHighScoreText();
         }
     }
@@ -72,4 +72,5 @@ public class ScoreManager : MonoBehaviour
     {
         highScoreText.text = "HighScore: " + highScore.ToString();
     }
+
 }

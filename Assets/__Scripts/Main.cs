@@ -18,10 +18,11 @@ public class Main : MonoBehaviour {
     {
         WeaponType.blaster, WeaponType.blaster, WeaponType.spread, WeaponType.shield
     };
+    public ScoreManager sManager;
 
     private BoundsCheck bndCheck;
 
-    public void ShipDestroyed( Enemy e)
+    public void ShipDestroyed(Enemy e)
     {
         // Potentially generate a PowerUp
         if (Random.value <= e.powerUpDropChance)
@@ -38,6 +39,7 @@ public class Main : MonoBehaviour {
 
             // Set it to the position of the destroyed ship
             pu.transform.position = e.transform.position;
+            sManager.AddScore(e.score);
         }
     }
 
@@ -56,6 +58,7 @@ public class Main : MonoBehaviour {
         {
             WEAP_DICT[def.type] = def;
         }
+        sManager = GameObject.Find("Canvas").GetComponent<ScoreManager>();
     }
 
     public void SpawnEnemy()
