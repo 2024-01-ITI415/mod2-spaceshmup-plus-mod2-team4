@@ -509,7 +509,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdd87f3fcbbe0f4699f7312c0650359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs: []
+  enemyPrefabs:
+  - {fileID: 1864666716847092, guid: a69aa768d15cba34b96a5422e50dc9b4, type: 3}
+  - {fileID: 1801717105832950, guid: cb4206b8e00300649994ecf8ffe838d5, type: 3}
+  - {fileID: 1158547974957732, guid: a0a74b7d2e3ac2449b0e77185af83fed, type: 3}
+  - {fileID: 1700942416061258, guid: 3f6055558a488314cb38691d88c41fdf, type: 3}
+  - {fileID: 1539775467464788, guid: 06677ec088bca734db80dc6ecea1d7af, type: 3}
   spawnInterval: 5
   startSpawnCount: 1
   increaseInterval: 60
