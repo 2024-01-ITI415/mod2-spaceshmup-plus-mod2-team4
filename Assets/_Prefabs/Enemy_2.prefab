@@ -82,6 +82,7 @@ MonoBehaviour:
   score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 0.5
+  VFX: {fileID: 318495550476277882, guid: c456c124ccc56fd4d9734ee18cdf9a00, type: 3}
   originalColors: []
   materials: []
   showingDamage: 0
