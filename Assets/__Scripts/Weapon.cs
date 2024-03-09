@@ -138,7 +138,7 @@ public class Weapon : MonoBehaviour {
             case WeaponType.missile:
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
-                p.GetComponent<HomingMissile>().speed = def.velocity;
+                p.GetComponent<HomingMissile>().rotateSpeed = def.velocity;
                 break;
         }
     }
