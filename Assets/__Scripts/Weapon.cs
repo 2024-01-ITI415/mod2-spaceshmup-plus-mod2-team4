@@ -15,6 +15,7 @@ public enum WeaponType
     phaser, // [NI] Shots that move in waves
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
+    nuke, //Wipe all enemies
     shield // Raise shieldLevel
 }
 
@@ -131,6 +132,12 @@ public class Weapon : MonoBehaviour {
                 p = MakeProjectile(); // Make left Projectile
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.rigid.velocity = p.transform.rotation * vel;
+                break;
+
+            case WeaponType.missile:
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
+                p.GetComponent<HomingMissile>().rotateSpeed = def.velocity;
                 break;
         }
     }

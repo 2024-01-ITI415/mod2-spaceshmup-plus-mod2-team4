@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Enemy : MonoBehaviour {
 
@@ -60,6 +62,19 @@ public class Enemy : MonoBehaviour {
             // We're off the bottom, so destroy this GameObject
             Destroy(gameObject);
         }
+
+        if (health <= 0)
+        {
+            // Tell the Main singleton that this ship was destroyed
+            if (!notifiedOfDestruction)
+            {
+                Main.S.ShipDestroyed(this);
+            }
+            notifiedOfDestruction = true;
+            // Destroy this enemy
+            Destroy(this.gameObject);
+        }
+
     }
 
     public virtual void Move()

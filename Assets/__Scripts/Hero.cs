@@ -41,7 +41,7 @@ public class Hero : MonoBehaviour {
 
         // Reset the weapons to start _Hero with 1 blaster
         ClearWeapons();
-        weapons[0].SetType(WeaponType.blaster);
+        weapons[0].SetType(WeaponType.missile);
     }
 	
 	// Update is called once per frame
@@ -107,6 +107,10 @@ public class Hero : MonoBehaviour {
                 shieldLevel++;
                 break;
 
+            case WeaponType.nuke:
+                nukeEnemies();
+                break;
+
             default:
                 if(pu.type == weapons[0].type)
                 {
@@ -164,6 +168,15 @@ public class Hero : MonoBehaviour {
         foreach (Weapon w in weapons)
         {
             w.SetType(WeaponType.none);
+        }
+    }
+
+    void nukeEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject go in  enemies)
+        {
+            go.GetComponent<Enemy>().health = 0;
         }
     }
 }
