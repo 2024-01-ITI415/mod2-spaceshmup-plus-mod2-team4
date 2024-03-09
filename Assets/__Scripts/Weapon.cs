@@ -48,9 +48,6 @@ public class Weapon : MonoBehaviour {
     private Renderer collarRend;
     public Transform target;
 
-    public float speed = 5.0f;
-    public float rotateSpeed = 100.0f;
-
     private void Start()
     {
         collar = transform.Find("Collar").gameObject;
@@ -141,6 +138,7 @@ public class Weapon : MonoBehaviour {
             case WeaponType.missile:
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
+                p.GetComponent<HomingMissile>().speed = def.velocity;
                 break;
         }
     }

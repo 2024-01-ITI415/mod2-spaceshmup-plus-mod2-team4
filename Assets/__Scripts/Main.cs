@@ -19,8 +19,8 @@ public class Main : MonoBehaviour {
         WeaponType.blaster, WeaponType.blaster, WeaponType.spread, WeaponType.shield, WeaponType.missile
     };
 
-    private BoundsCheck bndCheck;
 
+    private BoundsCheck bndCheck;
     public void ShipDestroyed( Enemy e)
     {
         // Potentially generate a PowerUp
