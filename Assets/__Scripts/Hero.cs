@@ -5,6 +5,12 @@ using UnityEngine;
 public class Hero : MonoBehaviour {
     static public Hero S; // Singleton
 
+    // Declare a delegate for the shield level changed event
+    public delegate void ShieldLevelChanged(float newShieldLevel);
+
+    // Define an event for the shield level changed
+    public static event ShieldLevelChanged OnShieldLevelChanged;
+
     [Header("Set in Inspector")]
     // These fields control the movement of the ship
     public float speed = 30;
@@ -107,6 +113,10 @@ public class Hero : MonoBehaviour {
                 shieldLevel++;
                 break;
 
+            case WeaponType.nuke:
+                nukeEnemies();
+                break;
+
             default:
                 if(pu.type == weapons[0].type)
                 {
@@ -138,6 +148,7 @@ public class Hero : MonoBehaviour {
         {
             _shieldLevel = Mathf.Min(value, 4);
             // If the shield is going to be set to less than zero
+            OnShieldLevelChanged.Invoke(_shieldLevel);
             if (value < 0)
             {
                 Destroy(this.gameObject);
@@ -164,6 +175,15 @@ public class Hero : MonoBehaviour {
         foreach (Weapon w in weapons)
         {
             w.SetType(WeaponType.none);
+        }
+    }
+
+    void nukeEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject go in  enemies)
+        {
+            go.GetComponent<Enemy>().health = 0;
         }
     }
 }
