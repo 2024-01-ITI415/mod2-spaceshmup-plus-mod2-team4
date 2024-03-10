@@ -12,3 +12,6 @@ Burndown Quick access:
 
 Class Mirro-Board:
 [Flowchart](https://miro.com/app/board/uXjVNp9wk2E=/)
+
+Variables we tuned from the original:
+[Docs](https://docs.google.com/document/d/10a3g0Ak9EstGpIrtgIMdUI8HliGZ_Zpm_D3BCeJfY9Y/edit)
