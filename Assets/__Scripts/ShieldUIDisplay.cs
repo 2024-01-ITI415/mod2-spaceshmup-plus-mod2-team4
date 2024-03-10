@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShieldUIDisplay : MonoBehaviour
 {
     // Reference to the UI Text component
-    private Text shieldCounter;
+    private TextMeshProUGUI shieldCounter;
 
     void Start()
     {
         // Get the UI Text component
-        shieldCounter = GetComponent<Text>();
+        shieldCounter = GetComponent<TextMeshProUGUI>();
 
         // Subscribe to the shield level changed event
         Hero.OnShieldLevelChanged += UpdateShieldUI;
