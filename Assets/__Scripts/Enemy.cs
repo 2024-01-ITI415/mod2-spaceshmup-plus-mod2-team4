@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour {
     public int score = 100; // Points earned for destroying this
     public float showDamageDuration = 0.1f; // # seconds to show damage
     public float powerUpDropChance = 1f; // Chance to drop a power-up
+    public GameObject VFX; //my vfx element
 
     [Header("Set Dynamically: Enemy")]
     public Color[] originalColors;
@@ -110,6 +111,8 @@ public class Enemy : MonoBehaviour {
                         Main.S.ShipDestroyed(this);
                     }
                     notifiedOfDestruction = true;
+                    //using my vfx
+                    Instantiate(VFX, transform.position, Quaternion.identity);
                     // Destroy this enemy
                     Destroy(this.gameObject);
                 }
